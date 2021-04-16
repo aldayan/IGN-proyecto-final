@@ -259,3 +259,4 @@ C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proy
 C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\obj\Debug\net5.0\ref\FinalProject.dll
 C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\obj\Debug\net5.0\FinalProject.pdb
 C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\obj\Debug\net5.0\FinalProject.genruntimeconfig.cache
+C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\bin\Debug\net5.0\Newtonsoft.Json.dll

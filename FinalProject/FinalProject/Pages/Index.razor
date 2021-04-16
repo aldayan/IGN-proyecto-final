@@ -1,4 +1,8 @@
 @page "/"
+@using System.Net.Http;
+@using System.Text.Json;
+@using System.Text.Json.Serialization;
+@using Newtonsoft.Json;
 
 <center>
 <h1>Bienvenido a AccidAPP</h1>
@@ -41,11 +45,11 @@ presionar <strong>Registrar Accidente</strong></p>
   <div class="row">
       <div class="col">
   <label for="exampleInputEmail1">Nombre</label>
-    <input type="text" class="form-control" @bind="nombre">
+    <input type="text" class="form-control" @bind="nombre" disabled >
   </div>
   <div class="col">
   <label for="exampleInputEmail1">Apellido</label>
-    <input type="text" class="form-control" @bind="apellido">
+    <input type="text" class="form-control" @bind="apellidos" disabled>
     </div>
     </div>
      <div class="row">
@@ -55,7 +59,7 @@ presionar <strong>Registrar Accidente</strong></p>
   </div>
   <div class="col">
   <label for="exampleInputEmail1">Cedula</label>
-    <input type="text" class="form-control" @bind="cedula">
+    <input type="text" class="form-control" @bind="cedula" @onkeypress="GetData">
     </div>
     </div>
     <br>
@@ -69,10 +73,34 @@ presionar <strong>Registrar Accidente</strong></p>
 @code{
 
     string descripcion = "", fecha = "", hora = "", lugar = "", latitud = "", longitud = "";
-    string nombre = "", apellido = "", telefono = "", cedula = "", email = "";
+    string nombre = "", apellidos = "", telefono = "", cedula = "", email = "";
     int Id;
     bool decision = false;
 
+    string response,apellido1,apellido2;
+
+HttpClient client = new HttpClient();
+
+    private async Task GetData(){
+
+        response = await client.GetStringAsync("https://api.adamix.net/apec/cedula/"+cedula);
+        var Data = JsonConvert.DeserializeObject<Root>(response);
+        nombre=Data.Nombres;
+        apellido1=Data.Apellido1;
+        apellido2=Data.Apellido2;
+        apellidos=apellido1+" "+apellido2;
+       
+        
+    }
+
+       public class Root    {
+        public string Cedula { get; set; } 
+        public string Nombres { get; set; } 
+        public string Apellido1 { get; set; } 
+        public string Apellido2 { get; set; } 
+        public string Foto { get; set; }
+
+    }
 
 
     void AgregarAccidente()
@@ -93,7 +121,7 @@ presionar <strong>Registrar Accidente</strong></p>
 
             var Involucrados = new Involucrado();
             Involucrados.Nombre = nombre;
-            Involucrados.Apellido = apellido;
+            Involucrados.Apellido = apellidos;
             Involucrados.Telefono = telefono;
             Involucrados.Cedula = cedula;
             Involucrados.Correo = email;
@@ -109,7 +137,7 @@ presionar <strong>Registrar Accidente</strong></p>
             var db = new Conexion();
             var Involucrados = new Involucrado();
             Involucrados.Nombre = nombre;
-            Involucrados.Apellido = apellido;
+            Involucrados.Apellido = apellidos;
             Involucrados.Telefono = telefono;
             Involucrados.Cedula = cedula;
             Involucrados.Correo = email;
@@ -143,7 +171,7 @@ presionar <strong>Registrar Accidente</strong></p>
 
             var Involucrados = new Involucrado();
             Involucrados.Nombre = nombre;
-            Involucrados.Apellido = apellido;
+            Involucrados.Apellido = apellidos;
             Involucrados.Telefono = telefono;
             Involucrados.Cedula = cedula;
             Involucrados.Correo = email;
@@ -167,7 +195,7 @@ presionar <strong>Registrar Accidente</strong></p>
         longitud = "";
         latitud = "";
         nombre = "";
-        apellido = "";
+        apellidos = "";
         telefono = "";
         cedula = "";
         email = "";
@@ -176,7 +204,7 @@ presionar <strong>Registrar Accidente</strong></p>
     void LimpiarInvo()
     {
         nombre = "";
-        apellido = "";
+        apellidos = "";
         telefono = "";
         cedula = "";
         email = "";

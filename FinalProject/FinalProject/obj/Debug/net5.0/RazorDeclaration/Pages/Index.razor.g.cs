@@ -13,13 +13,6 @@ namespace FinalProject.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
-using System.Net.Http;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
@@ -82,6 +75,34 @@ using FinalProject.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\Pages\Index.razor"
+using System.Net.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\Pages\Index.razor"
+using System.Text.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\Pages\Index.razor"
+using System.Text.Json.Serialization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\Pages\Index.razor"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -91,14 +112,38 @@ using FinalProject.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 69 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\Pages\Index.razor"
+#line 73 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\Pages\Index.razor"
       
 
     string descripcion = "", fecha = "", hora = "", lugar = "", latitud = "", longitud = "";
-    string nombre = "", apellido = "", telefono = "", cedula = "", email = "";
+    string nombre = "", apellidos = "", telefono = "", cedula = "", email = "";
     int Id;
     bool decision = false;
 
+    string response,apellido1,apellido2;
+
+HttpClient client = new HttpClient();
+
+    private async Task GetData(){
+
+        response = await client.GetStringAsync("https://api.adamix.net/apec/cedula/"+cedula);
+        var Data = JsonConvert.DeserializeObject<Root>(response);
+        nombre=Data.Nombres;
+        apellido1=Data.Apellido1;
+        apellido2=Data.Apellido2;
+        apellidos=apellido1+" "+apellido2;
+       
+        
+    }
+
+       public class Root    {
+        public string Cedula { get; set; } 
+        public string Nombres { get; set; } 
+        public string Apellido1 { get; set; } 
+        public string Apellido2 { get; set; } 
+        public string Foto { get; set; }
+
+    }
 
 
     void AgregarAccidente()
@@ -119,7 +164,7 @@ using FinalProject.Shared;
 
             var Involucrados = new Involucrado();
             Involucrados.Nombre = nombre;
-            Involucrados.Apellido = apellido;
+            Involucrados.Apellido = apellidos;
             Involucrados.Telefono = telefono;
             Involucrados.Cedula = cedula;
             Involucrados.Correo = email;
@@ -135,7 +180,7 @@ using FinalProject.Shared;
             var db = new Conexion();
             var Involucrados = new Involucrado();
             Involucrados.Nombre = nombre;
-            Involucrados.Apellido = apellido;
+            Involucrados.Apellido = apellidos;
             Involucrados.Telefono = telefono;
             Involucrados.Cedula = cedula;
             Involucrados.Correo = email;
@@ -169,7 +214,7 @@ using FinalProject.Shared;
 
             var Involucrados = new Involucrado();
             Involucrados.Nombre = nombre;
-            Involucrados.Apellido = apellido;
+            Involucrados.Apellido = apellidos;
             Involucrados.Telefono = telefono;
             Involucrados.Cedula = cedula;
             Involucrados.Correo = email;
@@ -193,7 +238,7 @@ using FinalProject.Shared;
         longitud = "";
         latitud = "";
         nombre = "";
-        apellido = "";
+        apellidos = "";
         telefono = "";
         cedula = "";
         email = "";
@@ -202,7 +247,7 @@ using FinalProject.Shared;
     void LimpiarInvo()
     {
         nombre = "";
-        apellido = "";
+        apellidos = "";
         telefono = "";
         cedula = "";
         email = "";
