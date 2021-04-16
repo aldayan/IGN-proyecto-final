@@ -1,7 +1,185 @@
 @page "/"
 
-<h1>Proyecto final</h1>
+<center>
+<h1>Bienvenido a AccidAPP</h1>
+<p><strong>Nota:</strong> para agregar solo un involucrado presionar <strong>Registrar Accidente</strong><br>
+para agregar mas de un involucrado presionar <strong>Agregar mas involucrados</strong>y cuando agrege el ultimo involucrado <br>
+presionar <strong>Registrar Accidente</strong></p>
+<h3>Accidente</h3>
+
+ <div class="form-group">
+    <label for="exampleInputEmail1">Descripcion</label>
+    <input type="text" class="form-control" @bind="descripcion" >
+  <div class="row">
+      <div class="col">
+  <label for="exampleInputEmail1">Fecha</label>
+    <input type="text" class="form-control" @bind="fecha" >
+  </div>
+  <div class="col">
+  <label for="exampleInputEmail1">Hora</label>
+    <input type="text" class="form-control" @bind="hora"  >
+    </div>
+    </div>
+    <br>
+  <label for="exampleInputEmail1">Lugar</label>
+    <input type="text" class="form-control" @bind="lugar" >
+   <div class="row">
+    <div class="col">
+  <label for="exampleInputEmail1">Latitud</label>
+    <input type="text" class="form-control" @bind="latitud">
+    </div>
+     <div class="col">
+  <label for="exampleInputEmail1">Longitud</label>
+    <input type="text" class="form-control" @bind="longitud" >
+    </div>
+    </div>
+  </div>
+
+
+  <h3>Involucrados</h3>
+
+  <div class="row">
+      <div class="col">
+  <label for="exampleInputEmail1">Nombre</label>
+    <input type="text" class="form-control" @bind="nombre">
+  </div>
+  <div class="col">
+  <label for="exampleInputEmail1">Apellido</label>
+    <input type="text" class="form-control" @bind="apellido">
+    </div>
+    </div>
+     <div class="row">
+    <div class="col">
+  <label for="exampleInputEmail1">Telefono</label>
+    <input type="text" class="form-control" @bind="telefono">
+  </div>
+  <div class="col">
+  <label for="exampleInputEmail1">Cedula</label>
+    <input type="text" class="form-control" @bind="cedula">
+    </div>
+    </div>
+    <br>
+    <label for="exampleInputEmail1">Email</label>
+    <input type="text" class="form-control" @bind="email">
+    <br>
+</center>
+<button class="btn btn-primary btn-lg btn-block" @onclick="AgregarInvolucrado" type="button">Agregar mas involucrados</button>
+<button class="btn btn-primary btn-lg btn-block" @onclick="AgregarAccidente"  type="button">Registrar Accidente</button>
+<br>
+@code{
+
+    string descripcion = "", fecha = "", hora = "", lugar = "", latitud = "", longitud = "";
+    string nombre = "", apellido = "", telefono = "", cedula = "", email = "";
+    int Id;
+    bool decision = false;
 
 
 
+    void AgregarAccidente()
+    {
+        if (decision == false)
+        {
+            var db = new Conexion();
+            var Accidentes = new Accidente();
 
+            Accidentes.Fecha = fecha;
+            Accidentes.Hora = hora;
+            Accidentes.Lugar = lugar;
+            Accidentes.Latitud = latitud;
+            Accidentes.Longitud = longitud;
+            Accidentes.Descripcion = descripcion;
+            db.Add(Accidentes);
+            db.SaveChanges();
+
+            var Involucrados = new Involucrado();
+            Involucrados.Nombre = nombre;
+            Involucrados.Apellido = apellido;
+            Involucrados.Telefono = telefono;
+            Involucrados.Cedula = cedula;
+            Involucrados.Correo = email;
+            Involucrados.AccidenteId = Accidentes.AccidenteId;
+            db.Add(Involucrados);
+            db.SaveChanges();
+
+            LimpiarTodo();
+
+        }
+        else
+        {
+            var db = new Conexion();
+            var Involucrados = new Involucrado();
+            Involucrados.Nombre = nombre;
+            Involucrados.Apellido = apellido;
+            Involucrados.Telefono = telefono;
+            Involucrados.Cedula = cedula;
+            Involucrados.Correo = email;
+            Involucrados.AccidenteId = Id;
+            db.Add(Involucrados);
+            db.SaveChanges();
+            LimpiarTodo();
+
+
+        }
+
+    }
+
+    void AgregarInvolucrado()
+    {
+        decision = true;
+        var db = new Conexion();
+        var Accidentes = new Accidente();
+
+        Accidentes.Fecha = fecha;
+        Accidentes.Hora = hora;
+        Accidentes.Lugar = lugar;
+        Accidentes.Latitud = latitud;
+        Accidentes.Longitud = longitud;
+        Accidentes.Descripcion = descripcion;
+        db.Add(Accidentes);
+        db.SaveChanges();
+        Id = Accidentes.AccidenteId;
+        do
+        {
+
+            var Involucrados = new Involucrado();
+            Involucrados.Nombre = nombre;
+            Involucrados.Apellido = apellido;
+            Involucrados.Telefono = telefono;
+            Involucrados.Cedula = cedula;
+            Involucrados.Correo = email;
+            Involucrados.AccidenteId = Accidentes.AccidenteId;
+            db.Add(Involucrados);
+
+        } while (decision == false);
+
+        db.SaveChanges();
+
+        LimpiarInvo();
+    }
+
+    void LimpiarTodo()
+    {
+
+        descripcion = "";
+        fecha = "";
+        hora = "";
+        lugar = "";
+        longitud = "";
+        latitud = "";
+        nombre = "";
+        apellido = "";
+        telefono = "";
+        cedula = "";
+        email = "";
+    }
+
+    void LimpiarInvo()
+    {
+        nombre = "";
+        apellido = "";
+        telefono = "";
+        cedula = "";
+        email = "";
+    }
+
+}

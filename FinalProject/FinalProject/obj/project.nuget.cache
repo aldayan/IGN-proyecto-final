@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q8WlAIwJMpqPoZLyEWjjyW40BJ8YYHWKzYenyWHBwd88EFzUNcrWJO5G3akbKk9uU//2lgU2UfXtFtqlAs0vBQ==",
+  "dgSpecHash": "vNcg8Y2uWbVArCAY044xkN/OBw6P3hLrIi9TTsoYIbl46UhhTSy+bn6G6ixHf4iatqCcItrMrYxtp3gkTABYSw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\FinalProject.csproj",
+  "projectFilePath": "C:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\FinalProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daniel\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

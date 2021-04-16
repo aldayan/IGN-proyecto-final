@@ -13,70 +13,70 @@ namespace FinalProject.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\final\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
+#line 1 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\final\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
+#line 2 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\final\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
+#line 3 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\final\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
+#line 4 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\final\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
+#line 5 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\final\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
+#line 6 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\final\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
+#line 7 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\final\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
+#line 8 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\final\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
+#line 9 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using FinalProject;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\final\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
+#line 10 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\_Imports.razor"
 using FinalProject.Shared;
 
 #line default
@@ -90,6 +90,128 @@ using FinalProject.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 69 "C:\Users\daniel\Desktop\clases\6-cuatrimestre\introduccion a ingenieria\IGN-proyecto-final\FinalProject\FinalProject\Pages\Index.razor"
+      
+
+    string descripcion = "", fecha = "", hora = "", lugar = "", latitud = "", longitud = "";
+    string nombre = "", apellido = "", telefono = "", cedula = "", email = "";
+    int Id;
+    bool decision = false;
+
+
+
+    void AgregarAccidente()
+    {
+        if (decision == false)
+        {
+            var db = new Conexion();
+            var Accidentes = new Accidente();
+
+            Accidentes.Fecha = fecha;
+            Accidentes.Hora = hora;
+            Accidentes.Lugar = lugar;
+            Accidentes.Latitud = latitud;
+            Accidentes.Longitud = longitud;
+            Accidentes.Descripcion = descripcion;
+            db.Add(Accidentes);
+            db.SaveChanges();
+
+            var Involucrados = new Involucrado();
+            Involucrados.Nombre = nombre;
+            Involucrados.Apellido = apellido;
+            Involucrados.Telefono = telefono;
+            Involucrados.Cedula = cedula;
+            Involucrados.Correo = email;
+            Involucrados.AccidenteId = Accidentes.AccidenteId;
+            db.Add(Involucrados);
+            db.SaveChanges();
+
+            LimpiarTodo();
+
+        }
+        else
+        {
+            var db = new Conexion();
+            var Involucrados = new Involucrado();
+            Involucrados.Nombre = nombre;
+            Involucrados.Apellido = apellido;
+            Involucrados.Telefono = telefono;
+            Involucrados.Cedula = cedula;
+            Involucrados.Correo = email;
+            Involucrados.AccidenteId = Id;
+            db.Add(Involucrados);
+            db.SaveChanges();
+            LimpiarTodo();
+
+
+        }
+
+    }
+
+    void AgregarInvolucrado()
+    {
+        decision = true;
+        var db = new Conexion();
+        var Accidentes = new Accidente();
+
+        Accidentes.Fecha = fecha;
+        Accidentes.Hora = hora;
+        Accidentes.Lugar = lugar;
+        Accidentes.Latitud = latitud;
+        Accidentes.Longitud = longitud;
+        Accidentes.Descripcion = descripcion;
+        db.Add(Accidentes);
+        db.SaveChanges();
+        Id = Accidentes.AccidenteId;
+        do
+        {
+
+            var Involucrados = new Involucrado();
+            Involucrados.Nombre = nombre;
+            Involucrados.Apellido = apellido;
+            Involucrados.Telefono = telefono;
+            Involucrados.Cedula = cedula;
+            Involucrados.Correo = email;
+            Involucrados.AccidenteId = Accidentes.AccidenteId;
+            db.Add(Involucrados);
+
+        } while (decision == false);
+
+        db.SaveChanges();
+
+        LimpiarInvo();
+    }
+
+    void LimpiarTodo()
+    {
+
+        descripcion = "";
+        fecha = "";
+        hora = "";
+        lugar = "";
+        longitud = "";
+        latitud = "";
+        nombre = "";
+        apellido = "";
+        telefono = "";
+        cedula = "";
+        email = "";
+    }
+
+    void LimpiarInvo()
+    {
+        nombre = "";
+        apellido = "";
+        telefono = "";
+        cedula = "";
+        email = "";
+    }
+
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

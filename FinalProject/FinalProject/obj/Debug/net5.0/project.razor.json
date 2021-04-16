@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\FinalProject.csproj",
+  "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\FinalProject.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -11,39 +11,6 @@
   },
   "ProjectWorkspaceState": {
     "TagHelpers": [
-      {
-        "HashCode": -605037339,
-        "Kind": "Components.Component",
-        "Name": "FinalProject.Pages.Counter",
-        "AssemblyName": "FinalProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Counter"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "FinalProject.Pages.Counter"
-        }
-      },
-      {
-        "HashCode": 1645331176,
-        "Kind": "Components.Component",
-        "Name": "FinalProject.Pages.Counter",
-        "AssemblyName": "FinalProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "FinalProject.Pages.Counter"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "FinalProject.Pages.Counter",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
       {
         "HashCode": -2119046944,
         "Kind": "Components.Component",
@@ -78,6 +45,72 @@
         }
       },
       {
+        "HashCode": -605037339,
+        "Kind": "Components.Component",
+        "Name": "FinalProject.Pages.Counter",
+        "AssemblyName": "FinalProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Counter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "FinalProject.Pages.Counter"
+        }
+      },
+      {
+        "HashCode": 1645331176,
+        "Kind": "Components.Component",
+        "Name": "FinalProject.Pages.Counter",
+        "AssemblyName": "FinalProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "FinalProject.Pages.Counter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "FinalProject.Pages.Counter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 256817321,
+        "Kind": "Components.Component",
+        "Name": "FinalProject.Pages.Listar",
+        "AssemblyName": "FinalProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Listar"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "FinalProject.Pages.Listar"
+        }
+      },
+      {
+        "HashCode": 193039568,
+        "Kind": "Components.Component",
+        "Name": "FinalProject.Pages.Listar",
+        "AssemblyName": "FinalProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "FinalProject.Pages.Listar"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "FinalProject.Pages.Listar",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": -1025169715,
         "Kind": "Components.Component",
         "Name": "FinalProject.Pages.Index",
@@ -107,39 +140,6 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "FinalProject.Pages.Index",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1022644055,
-        "Kind": "Components.Component",
-        "Name": "FinalProject.App",
-        "AssemblyName": "FinalProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "FinalProject.App"
-        }
-      },
-      {
-        "HashCode": 1214519601,
-        "Kind": "Components.Component",
-        "Name": "FinalProject.App",
-        "AssemblyName": "FinalProject",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "FinalProject.App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "FinalProject.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -322,6 +322,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "FinalProject.Shared.NavMenu",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1022644055,
+        "Kind": "Components.Component",
+        "Name": "FinalProject.App",
+        "AssemblyName": "FinalProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "FinalProject.App"
+        }
+      },
+      {
+        "HashCode": 1214519601,
+        "Kind": "Components.Component",
+        "Name": "FinalProject.App",
+        "AssemblyName": "FinalProject",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "FinalProject.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "FinalProject.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -15933,54 +15966,64 @@
   "RootNamespace": "FinalProject",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\Shared\\NavMenu.razor",
-      "TargetPath": "Shared\\NavMenu.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\FetchData.razor",
-      "TargetPath": "Pages\\FetchData.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\App.razor",
-      "TargetPath": "App.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\Counter.razor",
-      "TargetPath": "Pages\\Counter.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\_Imports.razor",
-      "TargetPath": "_Imports.razor",
-      "FileKind": "componentImport"
-    },
-    {
-      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\Index.razor",
-      "TargetPath": "Pages\\Index.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\_Host.cshtml",
+      "TargetPath": "Pages\\_Host.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\Shared\\SurveyPrompt.razor",
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\Shared\\SurveyPrompt.razor",
       "TargetPath": "Shared\\SurveyPrompt.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\Shared\\MainLayout.razor",
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\Mapa.cshtml",
+      "TargetPath": "Pages\\Mapa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\Error.cshtml",
+      "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\Index.razor",
+      "TargetPath": "Pages\\Index.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\Shared\\MainLayout.razor",
       "TargetPath": "Shared\\MainLayout.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\final\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\_Host.cshtml",
-      "TargetPath": "Pages\\_Host.cshtml",
-      "FileKind": "mvc"
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\Shared\\NavMenu.razor",
+      "TargetPath": "Shared\\NavMenu.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\FetchData.razor",
+      "TargetPath": "Pages\\FetchData.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\App.razor",
+      "TargetPath": "App.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\Counter.razor",
+      "TargetPath": "Pages\\Counter.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\_Imports.razor",
+      "TargetPath": "_Imports.razor",
+      "FileKind": "componentImport"
+    },
+    {
+      "FilePath": "c:\\Users\\daniel\\Desktop\\clases\\6-cuatrimestre\\introduccion a ingenieria\\IGN-proyecto-final\\FinalProject\\FinalProject\\Pages\\Listar.razor",
+      "TargetPath": "Pages\\Listar.razor",
+      "FileKind": "component"
     }
   ],
   "SerializationFormat": "0.2"
