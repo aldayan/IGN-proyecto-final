@@ -1,1 +1,73 @@
 @page "/Listar"
+
+<h1>Bienvenido a AccidAPP</h1>
+<br>
+<h3>Listado de Accidentes</h3>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Lugar</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Hora</th>
+      <th scope="col">Longitud</th>
+      <th scope="col">Latitud</th>
+    </tr>
+  </thead>
+  <tbody>
+    @using (var db = new Conexion())
+    {
+    @foreach (var report in db.Accidentes.ToList())
+    {
+      <tr>
+      <th scope="row">@report.AccidenteId</th>
+      <td>@report.Descripcion</td>
+      <td>@report.Lugar</td>
+      <td>@report.Fecha</td>
+      <td>@report.Hora</td>
+      <td>@report.Longitud</td>
+      <td>@report.Latitud</td>
+    </tr>
+        
+    }
+    }
+  </tbody>
+</table>
+<br>
+<h3>Listado de Involucrados</h3>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id Accidente</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Cedula</th>
+      <th scope="col">Correo</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @using (var db = new Conexion())
+    {
+    @foreach (var report in db.Involucrados.ToList())
+    {
+      <tr>
+      <th scope="row">@report.AccidenteId</th>
+      <td>@report.Nombre</td>
+      <td>@report.Apellido</td>
+      <td>@report.Telefono</td>
+      <td>@report.Cedula</td>
+      <td>@report.Correo</td>
+    </tr>
+        
+    }
+    }
+  </tbody>
+</table>
+@code{
+  
+}
