@@ -1,2 +1,78 @@
-
 @page "/Mapa"
+
+@using Newtonsoft.Json;
+@namespace Tarea4_Entity_.Pages
+@{
+    var db = new Conexion();
+    var json = JsonConvert.SerializeObject(db.Accidentes.ToList());
+    var jsoni=JsonConvert.SerializeObject(db.Involucrados.ToList(), Formatting.Indented,
+    new JsonSerializerSettings() {
+        ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+    }
+);
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="css\site.css">
+
+</head>
+<body>
+    <center>
+    <h1>Mapa de Accidentes</h1>
+    <div id="map">
+
+
+    </div>
+    <br>
+    <div>
+           <input class="btn btn-warning btn-lg" type="button" onclick="history.back()" name="volver atrás" value="volver atrás">
+
+    </div>
+    <br>
+
+    <script>
+
+       const para = {
+
+        center: [18.66, -69.80],
+        zoom: 13
+
+
+       }
+       let map = L.map('map', para)
+       let tileLayer = L.tileLayer('http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png')
+        
+      map.addLayer(tileLayer)
+        var data= @Html.Raw(json);
+        var datai= @Html.Raw(jsoni);
+        for(let i of data){
+            
+                    
+                   let involucrados = datai.filter(x=> x.AccidenteId==i.AccidenteId);
+                    let nombresInv = involucrados.map(x=>x.Nombre);
+                    let apellidoInv = involucrados.map(x=>x.Apellido);
+                    let cedulaInv = involucrados.map(x=>x.Cedula);
+
+                     L.marker([i.Latitud, i.Longitud]).addTo(map)
+                    .bindPopup('<strong>Lugar: </strong>'+i.Lugar+'<br><strong>Descripcion: </strong>'+i.Descripcion+'<br><strong>Fecha:</strong> '+i.Fecha+'<br><strong>Hora:</strong> '
+                    +i.Hora+'<br><strong>Nombre del Involucrado: </strong>'+nombresInv+
+                    '<br><strong>Apellido del Involucrados: </strong>'+apellidoInv+'<br><strong>Cedula: </strong>'+cedulaInv+'')
+                     .openPopup(); 
+           
+        }
+     
+
+    </script>
+    
+    </center>
+</body>
+</html>
